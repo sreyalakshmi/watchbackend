@@ -24,6 +24,19 @@ app.get("/view",(req,res)=>{
      }
     )
  })
+ app.post("/search",(req,res)=>{
+    let input=req.body
+    watchmodel.find(input).then(
+        (data)=>{
+            res.json(data)
+        }
+    ).catch(
+        (error)=>{
+            res.json(error)
+        }
+    )
+})
+
  
 app.listen(8080,()=>{
 console.log("server started")
